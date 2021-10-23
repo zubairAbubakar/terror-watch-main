@@ -51,7 +51,8 @@ def vote(id):
         db.session.commit()
 
         publish('post voted for', id)
-    except:
+    except Exception as e:
+        print(e)
         abort(400, 'You already voted for this post')
 
     return jsonify({

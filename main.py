@@ -9,7 +9,7 @@ from sqlalchemy import UniqueConstraint
 from producer import publish
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://admin:p4ssw0rd@db/terror_watch_main"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://admin:p4ssw0rd@db/terror_watch_main"
 CORS(app)
 
 db = SQLAlchemy(app)

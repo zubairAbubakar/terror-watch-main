@@ -21,14 +21,14 @@ services:
             - db
 
     db:
-        image: mysql:5.7.22
+        image: postgres:13-alpine
+        user: postgres
         restart: always
-        environment: 
-            MYSQL_DATABASE: terror_watch_main
-            MYSQL_USER: admin
-            MYSQL_PASSWORD: p4ssw0rd
-            MYSQL_ROOT_PASSWORD: p4ssw0rd
-        volumes: 
-            - .dbdata:/var/lib/mysql
-        ports: 
-            - 33067:3306
+        environment:
+            POSTGRES_DB: terror_watch_main
+            POSTGRES_USER: admin
+            POSTGRES_PASSWORD: p4ssw0rd
+        volumes:
+            - .dbdata:/var/lib/postgresql/data
+        ports:
+            - 54323:5432
